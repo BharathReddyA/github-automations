@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>799.2,3756.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>860,4349.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -59,6 +59,7 @@
       <x:String>UiPath.Platform.ObjectLibrary</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.Jira.IntegrationService.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -126,6 +127,7 @@
       <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
       <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Jira.IntegrationService.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap2010:WorkflowViewState.ViewStateManager>
@@ -217,7 +219,7 @@
     </isactr:ConnectorActivity>
     <usia:CreateChannel ActivityInstanceId="825abd62-4b87-4dcc-b17b-26c5b2997fd3" BindingsVersion="2.1" BusinessEntityName="conversations" ConfiguredBusinessEntity="conversations" ConnectionId="61b1634e-2f03-4d88-9219-95bbfa9a5cdd" Connector="uipath-salesforce-slack" CrudOperation="Create" DesignConnectionEnabled="True" DisplayName="Creating Channel using entered repo name" sap:VirtualizedContainerService.HintSize="483.2,152.8" sap2010:WorkflowViewState.IdRef="CreateChannel_1">
       <usia:CreateChannel.BusinessEntity>
-        <uibi:BusinessEntity Name="conversations">
+        <uibi:BusinessEntity Metadata="{x:Reference __ReferenceID2}" Name="conversations">
           <uibi:BusinessEntity.AllFields>
             <scg:List x:TypeArguments="uibi:EntityField" Capacity="5">
               <uiisi:OperationEntityField x:TypeArguments="usic:Conversations" ArgumentDirection="In" ArgumentType="usic:Conversations" DataType="Conversations" Description="The channels object body" DisplayName="Body" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="True" IsParameter="True" IsPriority="False" IsSelected="False" Location="Undefined" Name="body" ShouldFilterOnChange="False" />
@@ -241,12 +243,12 @@
                   <VisualBasicValue x:TypeArguments="x:String">[NewRepoName]</VisualBasicValue>
                 </uiisi:OperationEntityField.Value>
               </uiisi:OperationEntityField>
-              <uiisi:OperationEntityField x:TypeArguments="s:Nullable(x:Boolean)" ArgumentValue="{x:Reference __ReferenceID1}" Value="{x:Reference __ReferenceID0}" x:Name="__ReferenceID4" ArgumentDirection="In" ArgumentType="s:Nullable(x:Boolean)" DataType="Boolean" Description="Whether the channel is private or not? Default is false" DisplayName="Make channel private?" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.is_private" Order="3" ShouldFilterOnChange="False">
-                <uiisi:OperationEntityField.InArgumentValue>
+              <uiisi:OperationEntityField x:TypeArguments="s:Nullable(x:Boolean)" InArgumentValue="{x:Reference __ReferenceID1}" Value="{x:Reference __ReferenceID0}" x:Name="__ReferenceID4" ArgumentDirection="In" ArgumentType="s:Nullable(x:Boolean)" DataType="Boolean" Description="Whether the channel is private or not? Default is false" DisplayName="Make channel private?" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.is_private" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.ArgumentValue>
                   <InArgument x:TypeArguments="s:Nullable(x:Boolean)" x:Name="__ReferenceID1">
                     <Literal x:TypeArguments="s:Nullable(x:Boolean)" x:Name="__ReferenceID0" Value="False" />
                   </InArgument>
-                </uiisi:OperationEntityField.InArgumentValue>
+                </uiisi:OperationEntityField.ArgumentValue>
                 <uiisi:OperationEntityField.Metadata>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
@@ -263,16 +265,17 @@
             </scg:List>
           </uibi:BusinessEntity.AllFields>
           <uibi:BusinessEntity.EntityMetadata>
-            <uibi:EntityMetadata Metadata="{x:Reference __ReferenceID2}" DisplayName="conversations" EligibleOperations="1" IsCustomEntity="False" Name="conversations" />
+            <uibi:EntityMetadata DisplayName="conversations" EligibleOperations="1" IsCustomEntity="False" Name="conversations">
+              <uibi:EntityMetadata.Metadata>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID2">
+                  <x:String x:Key="Object">conversations</x:String>
+                  <x:String x:Key="Client">UiPath.Slack.IntegrationService.Client.ConversationsAPIClient</x:String>
+                  <x:String x:Key="Operation">CreateConversation</x:String>
+                  <x:String x:Key="Path">/conversations</x:String>
+                </scg:Dictionary>
+              </uibi:EntityMetadata.Metadata>
+            </uibi:EntityMetadata>
           </uibi:BusinessEntity.EntityMetadata>
-          <uibi:BusinessEntity.Metadata>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID2">
-              <x:String x:Key="Object">conversations</x:String>
-              <x:String x:Key="Client">UiPath.Slack.IntegrationService.Client.ConversationsAPIClient</x:String>
-              <x:String x:Key="Operation">CreateConversation</x:String>
-              <x:String x:Key="Path">/conversations</x:String>
-            </scg:Dictionary>
-          </uibi:BusinessEntity.Metadata>
           <uibi:BusinessEntity.SelectedFields>
             <scg:List x:TypeArguments="uibi:EntityField" Capacity="4">
               <x:Reference>__ReferenceID3</x:Reference>
@@ -308,7 +311,7 @@
     </usia:CreateChannel>
     <usia:SendMessage ActivityInstanceId="0694399e-fd52-47c9-a0bc-f142013bf384" BindingsVersion="2.1" BusinessEntityName="conversations_chat" ConfiguredBusinessEntity="conversations_chat" ConnectionId="61b1634e-2f03-4d88-9219-95bbfa9a5cdd" Connector="uipath-salesforce-slack" CrudOperation="Create" DesignConnectionEnabled="True" DisplayName="Send Message to created Channel with repo name" sap:VirtualizedContainerService.HintSize="483.2,204.8" sap2010:WorkflowViewState.IdRef="SendMessage_2">
       <usia:SendMessage.BusinessEntity>
-        <uibi:BusinessEntity Name="conversations_chat">
+        <uibi:BusinessEntity Metadata="{x:Reference __ReferenceID6}" Name="conversations_chat">
           <uibi:BusinessEntity.AllFields>
             <scg:List x:TypeArguments="uibi:EntityField" Capacity="10">
               <uiisi:OperationEntityField x:TypeArguments="usic:Conversations_chat" ArgumentDirection="In" ArgumentType="usic:Conversations_chat" DataType="Conversations_chat" Description="The channel message object body" DisplayName="Body" FormDataType="ExpressionTextBox" IsChildEntityField="False" IsCustomField="False" IsDefault="False" IsDeletable="True" IsHidden="True" IsIdField="False" IsMandatory="True" IsParameter="True" IsPriority="False" IsSelected="False" Location="Undefined" Name="body" ShouldFilterOnChange="False" />
@@ -319,30 +322,96 @@
                   </scg:Dictionary>
                 </uiisi:OperationEntityField.Metadata>
               </uiisi:OperationEntityField>
-              <x:Reference>__ReferenceID6</x:Reference>
-              <x:Reference>__ReferenceID7</x:Reference>
-              <x:Reference>__ReferenceID8</x:Reference>
-              <x:Reference>__ReferenceID9</x:Reference>
-              <x:Reference>__ReferenceID10</x:Reference>
-              <x:Reference>__ReferenceID11</x:Reference>
-              <x:Reference>__ReferenceID12</x:Reference>
-              <x:Reference>__ReferenceID13</x:Reference>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID7" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Type the name or ID of the public or private channel to which the message must be sent. If channel is not found in the drop-down, you can first scroll the drop-down till the bottom to get all the available channels and then type the channel or retrieve the channel name from Slack application → Right click on that channel → Click on 'Copy' → Click on 'Copy name' → Pass the copied channel name without '#'" DisplayName="Channel" FormDataType="ExpressionTextBox" InArgumentValue="[NewRepoName]" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="True" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.channel" Order="1" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.ArgumentValue>
+                  <InArgument x:TypeArguments="x:String">[NewRepoName]</InArgument>
+                </uiisi:OperationEntityField.ArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+                <uiisi:OperationEntityField.Value>
+                  <VisualBasicValue x:TypeArguments="x:String">[NewRepoName]</VisualBasicValue>
+                </uiisi:OperationEntityField.Value>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID8" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="The formatted text of the message to be sent" DisplayName="Message" FormDataType="ExpressionTextBox" InArgumentValue="[&quot;A new [&quot; + NewRepoName+  &quot;] repo is created &quot;]" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="True" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.text" Order="1" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.ArgumentValue>
+                  <InArgument x:TypeArguments="x:String" xml:space="preserve">["A new [" + NewRepoName+  "] repo is created "]</InArgument>
+                </uiisi:OperationEntityField.ArgumentValue>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+                <uiisi:OperationEntityField.Value>
+                  <VisualBasicValue x:TypeArguments="x:String" xml:space="preserve">["A new [" + NewRepoName+  "] repo is created "]</VisualBasicValue>
+                </uiisi:OperationEntityField.Value>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID9" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Change how messages are treated. Pass 'none' for removing hyperlinks and pass 'full' to ignore slack's default formatting" DisplayName="Formatting options (parse)" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.parse" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.EnumValues>
+                  <scg:List x:TypeArguments="x:String" Capacity="2">
+                    <x:String>none</x:String>
+                    <x:String>full</x:String>
+                  </scg:List>
+                </uiisi:OperationEntityField.EnumValues>
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="s:Nullable(x:Boolean)" x:Name="__ReferenceID10" ArgumentDirection="In" ArgumentType="s:Nullable(x:Boolean)" DataType="Boolean" Description="Whether to link and mention all the user groups automatically if the respective names are mentioned in the text message?" DisplayName="Link names" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.link_names" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="s:Nullable(x:Boolean)" x:Name="__ReferenceID11" ArgumentDirection="In" ArgumentType="s:Nullable(x:Boolean)" DataType="Boolean" Description="Whether to display the preview of the links mentioned in the text message?" DisplayName="Unfurl links" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.unfurl_links" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID12" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Only supported with 'Bot Token' connection. Customize the bot's user name while sending messages. The bot name will be defaulted to 'UiPath' if nothing is passed" DisplayName="Bot name" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.username" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID13" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Only supported with 'Bot Token' connection. Customize the bot’s icon with an emoji available in the workspace. For example, ':chart_with_upwards_trend'. If we provide an emoji that is not available in the workspace, it will be ignored" DisplayName="Bot icon" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.icon_emoji" Order="3" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
+              <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID14" ArgumentDirection="Out" ArgumentType="x:String" DataType="String" Description="The ID (timestamp) of the message sent" DisplayName="Message timestamp" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="Response.ts" ShouldFilterOnChange="False">
+                <uiisi:OperationEntityField.Metadata>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
+                  </scg:Dictionary>
+                </uiisi:OperationEntityField.Metadata>
+              </uiisi:OperationEntityField>
             </scg:List>
           </uibi:BusinessEntity.AllFields>
           <uibi:BusinessEntity.EntityMetadata>
-            <uibi:EntityMetadata Metadata="{x:Reference __ReferenceID14}" DisplayName="conversations_chat" EligibleOperations="1" IsCustomEntity="False" Name="conversations_chat" />
+            <uibi:EntityMetadata DisplayName="conversations_chat" EligibleOperations="1" IsCustomEntity="False" Name="conversations_chat">
+              <uibi:EntityMetadata.Metadata>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID6">
+                  <x:String x:Key="Object">conversations_chat</x:String>
+                  <x:String x:Key="Client">UiPath.Slack.IntegrationService.Client.Conversations_chatAPIClient</x:String>
+                  <x:String x:Key="Operation">CreateConversations_chat</x:String>
+                  <x:String x:Key="Path">/conversations_chat</x:String>
+                </scg:Dictionary>
+              </uibi:EntityMetadata.Metadata>
+            </uibi:EntityMetadata>
           </uibi:BusinessEntity.EntityMetadata>
-          <uibi:BusinessEntity.Metadata>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object" x:Name="__ReferenceID14">
-              <x:String x:Key="Object">conversations_chat</x:String>
-              <x:String x:Key="Client">UiPath.Slack.IntegrationService.Client.Conversations_chatAPIClient</x:String>
-              <x:String x:Key="Operation">CreateConversations_chat</x:String>
-              <x:String x:Key="Path">/conversations_chat</x:String>
-            </scg:Dictionary>
-          </uibi:BusinessEntity.Metadata>
           <uibi:BusinessEntity.SelectedFields>
             <scg:List x:TypeArguments="uibi:EntityField" Capacity="8">
-              <x:Reference>__ReferenceID6</x:Reference>
               <x:Reference>__ReferenceID7</x:Reference>
               <x:Reference>__ReferenceID8</x:Reference>
               <x:Reference>__ReferenceID9</x:Reference>
@@ -350,6 +419,7 @@
               <x:Reference>__ReferenceID11</x:Reference>
               <x:Reference>__ReferenceID12</x:Reference>
               <x:Reference>__ReferenceID13</x:Reference>
+              <x:Reference>__ReferenceID14</x:Reference>
             </scg:List>
           </uibi:BusinessEntity.SelectedFields>
           <uibi:BusinessEntity.TelemetryProperties>
@@ -371,80 +441,14 @@
       </usia:SendMessage.DesignConnectionRequest>
       <usia:SendMessage.SelectedFields>
         <scg:List x:TypeArguments="uibi:EntityField" Capacity="8">
-          <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID6" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Type the name or ID of the public or private channel to which the message must be sent. If channel is not found in the drop-down, you can first scroll the drop-down till the bottom to get all the available channels and then type the channel or retrieve the channel name from Slack application → Right click on that channel → Click on 'Copy' → Click on 'Copy name' → Pass the copied channel name without '#'" DisplayName="Channel" FormDataType="ExpressionTextBox" InArgumentValue="[NewRepoName]" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="True" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.channel" Order="1" ShouldFilterOnChange="False">
-            <uiisi:OperationEntityField.ArgumentValue>
-              <InArgument x:TypeArguments="x:String">[NewRepoName]</InArgument>
-            </uiisi:OperationEntityField.ArgumentValue>
-            <uiisi:OperationEntityField.Metadata>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
-              </scg:Dictionary>
-            </uiisi:OperationEntityField.Metadata>
-            <uiisi:OperationEntityField.Value>
-              <VisualBasicValue x:TypeArguments="x:String">[NewRepoName]</VisualBasicValue>
-            </uiisi:OperationEntityField.Value>
-          </uiisi:OperationEntityField>
-          <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID7" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="The formatted text of the message to be sent" DisplayName="Message" FormDataType="ExpressionTextBox" InArgumentValue="[&quot;A new [&quot; + NewRepoName+  &quot;] repo is created &quot;]" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="True" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.text" Order="1" ShouldFilterOnChange="False">
-            <uiisi:OperationEntityField.ArgumentValue>
-              <InArgument x:TypeArguments="x:String" xml:space="preserve">["A new [" + NewRepoName+  "] repo is created "]</InArgument>
-            </uiisi:OperationEntityField.ArgumentValue>
-            <uiisi:OperationEntityField.Metadata>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
-              </scg:Dictionary>
-            </uiisi:OperationEntityField.Metadata>
-            <uiisi:OperationEntityField.Value>
-              <VisualBasicValue x:TypeArguments="x:String" xml:space="preserve">["A new [" + NewRepoName+  "] repo is created "]</VisualBasicValue>
-            </uiisi:OperationEntityField.Value>
-          </uiisi:OperationEntityField>
-          <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID8" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Change how messages are treated. Pass 'none' for removing hyperlinks and pass 'full' to ignore slack's default formatting" DisplayName="Formatting options (parse)" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.parse" Order="3" ShouldFilterOnChange="False">
-            <uiisi:OperationEntityField.EnumValues>
-              <scg:List x:TypeArguments="x:String" Capacity="2">
-                <x:String>none</x:String>
-                <x:String>full</x:String>
-              </scg:List>
-            </uiisi:OperationEntityField.EnumValues>
-            <uiisi:OperationEntityField.Metadata>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
-              </scg:Dictionary>
-            </uiisi:OperationEntityField.Metadata>
-          </uiisi:OperationEntityField>
-          <uiisi:OperationEntityField x:TypeArguments="s:Nullable(x:Boolean)" x:Name="__ReferenceID9" ArgumentDirection="In" ArgumentType="s:Nullable(x:Boolean)" DataType="Boolean" Description="Whether to link and mention all the user groups automatically if the respective names are mentioned in the text message?" DisplayName="Link names" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.link_names" Order="3" ShouldFilterOnChange="False">
-            <uiisi:OperationEntityField.Metadata>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
-              </scg:Dictionary>
-            </uiisi:OperationEntityField.Metadata>
-          </uiisi:OperationEntityField>
-          <uiisi:OperationEntityField x:TypeArguments="s:Nullable(x:Boolean)" x:Name="__ReferenceID10" ArgumentDirection="In" ArgumentType="s:Nullable(x:Boolean)" DataType="Boolean" Description="Whether to display the preview of the links mentioned in the text message?" DisplayName="Unfurl links" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.unfurl_links" Order="3" ShouldFilterOnChange="False">
-            <uiisi:OperationEntityField.Metadata>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
-              </scg:Dictionary>
-            </uiisi:OperationEntityField.Metadata>
-          </uiisi:OperationEntityField>
-          <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID11" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Only supported with 'Bot Token' connection. Customize the bot's user name while sending messages. The bot name will be defaulted to 'UiPath' if nothing is passed" DisplayName="Bot name" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.username" Order="3" ShouldFilterOnChange="False">
-            <uiisi:OperationEntityField.Metadata>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
-              </scg:Dictionary>
-            </uiisi:OperationEntityField.Metadata>
-          </uiisi:OperationEntityField>
-          <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID12" ArgumentDirection="In" ArgumentType="x:String" DataType="String" Description="Only supported with 'Bot Token' connection. Customize the bot’s icon with an emoji available in the workspace. For example, ':chart_with_upwards_trend'. If we provide an emoji that is not available in the workspace, it will be ignored" DisplayName="Bot icon" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="body.icon_emoji" Order="3" ShouldFilterOnChange="False">
-            <uiisi:OperationEntityField.Metadata>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
-              </scg:Dictionary>
-            </uiisi:OperationEntityField.Metadata>
-          </uiisi:OperationEntityField>
-          <uiisi:OperationEntityField x:TypeArguments="x:String" x:Name="__ReferenceID13" ArgumentDirection="Out" ArgumentType="x:String" DataType="String" Description="The ID (timestamp) of the message sent" DisplayName="Message timestamp" FormDataType="ExpressionTextBox" IsChildEntityField="True" IsCustomField="False" IsDefault="False" IsDeletable="False" IsHidden="False" IsIdField="False" IsMandatory="False" IsPriority="False" IsSelected="False" Location="Undefined" Name="Response.ts" ShouldFilterOnChange="False">
-            <uiisi:OperationEntityField.Metadata>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <uiisi:CustomFieldsPriority x:Key="CustomFieldsPriority">Default</uiisi:CustomFieldsPriority>
-              </scg:Dictionary>
-            </uiisi:OperationEntityField.Metadata>
-          </uiisi:OperationEntityField>
+          <x:Reference>__ReferenceID7</x:Reference>
+          <x:Reference>__ReferenceID8</x:Reference>
+          <x:Reference>__ReferenceID9</x:Reference>
+          <x:Reference>__ReferenceID10</x:Reference>
+          <x:Reference>__ReferenceID11</x:Reference>
+          <x:Reference>__ReferenceID12</x:Reference>
+          <x:Reference>__ReferenceID13</x:Reference>
+          <x:Reference>__ReferenceID14</x:Reference>
         </scg:List>
       </usia:SendMessage.SelectedFields>
       <usia:SendMessage.TelemetryProperties>

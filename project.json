@@ -4,8 +4,10 @@
   "description": "Creates a GitHub repo, with the same name it creates a slack channel and joins in the channel, also sends a confirmation email.",
   "main": "Main.xaml",
   "dependencies": {
+    "UiPath.AmazonWebServices.Activities": "[2.6.0]",
     "UiPath.Excel.Activities": "[2.23.0-preview]",
     "UiPath.IntegrationService.Activities": "[1.1.0]",
+    "UiPath.Jira.IntegrationService.Activities": "[6.1.0]",
     "UiPath.Mail.Activities": "[1.21.1]",
     "UiPath.Persistence.Activities": "[1.4.6]",
     "UiPath.Slack.IntegrationService.Activities": "[5.2.0-preview]",
